@@ -15,6 +15,7 @@ echo 'APT::Install-Recommends 0;' >> /etc/apt/apt.conf.d/01norecommends && \
 
 wget https://www.zulip.org/dist/releases/zulip-server-latest.tar.gz
 tar -xf zulip-server-latest.tar.gz
+wget https://gist.githubusercontent.com/hackerkid/d41fcace8db1da9eae04d42d13f19fbb/raw/e98c0c83369d0c57fdcd8bfd5a55ef30b5350430/install -O zulip-server-2.0.4/scripts/lib/install
 
 array=(./zulip-server-*)
 "${array[0]}"/scripts/setup/install --email=mail@example.com --hostname "$(hostname -f)" --no-init-db --self-signed-cert
