@@ -19,6 +19,11 @@ tar -xf zulip-server-latest.tar.gz
 array=(./zulip-server-*)
 "${array[0]}"/scripts/setup/install --email=mail@example.com --hostname "$(hostname -f)" --no-init-db --self-signed-cert
 
+su postgres -c 'psql -v ON_ERROR_STOP=1 -e' <<EOF
+DROP DATABASE IF EXISTS zulip;
+DROP USER IF EXISTS zulip;
+EOF
+
 rm -f /etc/zulip/zulip-secrets.conf /etc/zulip/settings.py
 
 # Remove unnessary messages set by Ubuntu that appears during user login.
