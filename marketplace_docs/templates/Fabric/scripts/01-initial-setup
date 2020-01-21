@@ -21,6 +21,10 @@ array=(./zulip-server-*)
 
 rm -f /etc/zulip/zulip-secrets.conf /etc/zulip/settings.py
 
+# Temporary fix to memcached SASL issue
+rm /etc/sasl2/memcached-sasldb2
+rm /etc/sasl2/memcached-zulip-password
+
 # Remove unnessary messages set by Ubuntu that appears during user login.
  rm -f /etc/update-motd.d/00-header
  rm -f /etc/update-motd.d/10-help-text
