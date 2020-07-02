@@ -13,8 +13,8 @@ echo 'APT::Install-Recommends 0;' >> /etc/apt/apt.conf.d/01norecommends && \
     locale-gen en_US.UTF-8 && \
     apt-get -q dist-upgrade -y
 
-wget https://www.zulip.org/dist/releases/zulip-server-latest.tar.gz
-tar -xf zulip-server-latest.tar.gz
+wget https://zulip.org/dist/releases/zulip-server-3.0-rc1.tar.gz
+tar -xf zulip-server-3.0-rc1.tar.gz
 
 array=(./zulip-server-*)
 "${array[0]}"/scripts/setup/install --email=mail@example.com --hostname "$(hostname -f)" --no-init-db --self-signed-cert
